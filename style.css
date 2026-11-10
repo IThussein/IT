@@ -432,3 +432,34 @@ section {
         align-self: stretch;
     }
 }
+
+
+
+/* تحسين تحميل وعرض الصورة الرئيسية */
+.hero-image img {
+    width: 300px;
+    height: 300px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    content-visibility: auto;
+}
+
+/* تحسين عرض المحتوى خارج الشاشة */
+.about,
+.skills,
+.contact {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
+}
+
+/* تحسين تجربة المستخدم عند تقليل الحركة */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
