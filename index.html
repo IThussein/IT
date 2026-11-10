@@ -1,141 +1,362 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT HUSSEIN - متخصص أمن وحلول تقنية</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+
+    <!-- SEO -->
+    <title>IT HUSSEIN | الأمن السيبراني والتقنية واختبار الاختراق</title>
+    <meta name="description" content="الموقع الشخصي لحسين IT HUSSEIN. تعرّف على اهتماماته في الأمن السيبراني واختبار الاختراق والبرمجة والشبكات والحلول التقنية.">
+    <meta name="author" content="Hussein">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a192f">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://ithussein.github.io/IT/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_IQ">
+    <meta property="og:site_name" content="IT HUSSEIN">
+    <meta property="og:title" content="IT HUSSEIN | الأمن السيبراني والتقنية">
+    <meta property="og:description" content="الموقع الشخصي لحسين، المهتم بالأمن السيبراني واختبار الاختراق والبرمجة والشبكات.">
+    <meta property="og:url" content="https://ithussein.github.io/IT/">
+    <meta property="og:image" content="https://raw.githubusercontent.com/husseinraadv/web/main/Picsart_25-01-25_18-33-26-563.jpg">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IT HUSSEIN | الأمن السيبراني والتقنية">
+    <meta name="twitter:description" content="الموقع الشخصي لحسين في مجال التقنية والأمن السيبراني.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/husseinraadv/web/main/Picsart_25-01-25_18-33-26-563.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Hussein",
+      "url": "https://ithussein.github.io/IT/",
+      "image": "https://raw.githubusercontent.com/husseinraadv/web/main/Picsart_25-01-25_18-33-26-563.jpg",
+      "sameAs": [
+        "https://www.instagram.com/20.0.l/",
+        "https://x.com/ithusseinraad"
+      ],
+      "knowsAbout": [
+        "Cybersecurity",
+        "Penetration Testing",
+        "Programming",
+        "Computer Networks",
+        "Information Technology"
+      ]
+    }
+    </script>
+
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <!-- شريط التنقل -->
+
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo">IT<span>HUSSEIN</span></a>
-            <button class="menu-toggle" id="menuToggle">
+
+            <a href="#home" class="logo">
+                IT<span>HUSSEIN</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">
                 <i class="fas fa-bars"></i>
             </button>
+
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home">الرئيسية</a></li>
                 <li><a href="#about">عني</a></li>
                 <li><a href="#skills">المهارات</a></li>
                 <li><a href="#contact">التواصل</a></li>
             </ul>
+
         </div>
     </nav>
 
-    <!-- القسم الرئيسي -->
+    <!-- Hero Section -->
+    <main>
+
     <section class="hero" id="home">
+
         <div class="container hero-container">
-            <!-- هنا ستضع صورتك الشخصية -->
+
             <div class="hero-image">
-    <img 
-        src="https://raw.githubusercontent.com/husseinraadv/web/main/Picsart_25-01-25_18-33-26-563.jpg"
-        alt="صورة IT HUSSEIN"
-        class="profile-image"
-    >
-</div>
+                <img
+                    src="https://raw.githubusercontent.com/husseinraadv/web/main/Picsart_25-01-25_18-33-26-563.jpg"
+                    alt="الصورة الشخصية لحسين صاحب موقع IT HUSSEIN المهتم بالتقنية والأمن السيبراني"
+                    class="profile-image"
+                    fetchpriority="high"
+                >
+            </div>
 
             <div class="hero-text">
+
                 <h4>مرحباً، أنا</h4>
-                <h1>IT <span class="highlight">HUSSEIN</span></h1>
-                <h2>متخصص في <span class="typing-text"></span></h2>
-                <p>أحول التحديات التقنية إلى حلول آمنة وفعالة. أسعى دائمًا لاختبار حدود الأنظمة وتعزيز حمايتها.</p>
+
+                <h1>
+                    IT <span class="highlight">HUSSEIN</span>
+                </h1>
+
+                <h2>
+                    متخصص في <span class="typing-text"></span>
+                </h2>
+
+                <p>
+                    أعمل على تحويل التحديات التقنية إلى حلول آمنة وفعالة.
+                    أهتم بالأمن السيبراني واختبار الاختراق وتطوير الحلول التقنية.
+                    وأسعى باستمرار إلى التعلم وتطوير مهاراتي في عالم التكنولوجيا.
+                </p>
+
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">تواصل معي</a>
                     <a href="#about" class="btn btn-secondary">المزيد عني</a>
                 </div>
+
             </div>
         </div>
+
     </section>
 
-    <!-- قسم عني -->
+    <!-- About Section -->
     <section class="about" id="about">
+
         <div class="container">
-            <h2 class="section-title">عني <span class="highlight">.</span></h2>
+
+            <h2 class="section-title">
+                عني <span class="highlight">.</span>
+            </h2>
+
             <div class="about-content">
-                <p>اسمي <strong>حسين</strong>، وشغفي يتركز في عالم الأمن السيبراني والتقنية. أستمتع بتعلم واكتشاف الثغرات والأساليب الجديدة في مجال <strong>اختبار الاختراق</strong>، وأعمل على تطوير <strong>حلول تقنية</strong> عملية تلبي الاحتياجات الأمنية.</p>
-                <p>أؤمن بأن المعرفة المستمرة والمشاركة هي مفتاح التطور في هذا المجال السريع. أتابع آخر المستجدات وأحب مشاركة ما أتعلمه مع الآخرين.</p>
+
+                <p>
+                    اسمي <strong>حسين</strong>، وشغفي يتركز في عالم
+                    الأمن السيبراني والتقنية.
+                    أستمتع بتعلم واكتشاف الثغرات والأساليب الجديدة
+                    في مجال <strong>اختبار الاختراق</strong>،
+                    وأعمل على تطوير <strong>حلول تقنية</strong>
+                    عملية تلبي الاحتياجات الأمنية.
+                </p>
+
+                <p>
+                    أؤمن بأن المعرفة المستمرة والمشاركة هي مفتاح التطور
+                    في هذا المجال السريع.
+                    أتابع آخر المستجدات وأحب مشاركة ما أتعلمه مع الآخرين.
+                </p>
+
                 <div class="hobby-tags">
-                    <span class="tag"><i class="fas fa-shield-alt"></i> أمن المعلومات</span>
-                    <span class="tag"><i class="fas fa-code"></i> البرمجة</span>
-                    <span class="tag"><i class="fas fa-network-wired"></i> الشبكات</span>
-                    <span class="tag"><i class="fas fa-puzzle-piece"></i> حل المشكلات</span>
+
+                    <span class="tag">
+                        <i class="fas fa-shield-alt"></i>
+                        أمن المعلومات
+                    </span>
+
+                    <span class="tag">
+                        <i class="fas fa-code"></i>
+                        البرمجة
+                    </span>
+
+                    <span class="tag">
+                        <i class="fas fa-network-wired"></i>
+                        الشبكات
+                    </span>
+
+                    <span class="tag">
+                        <i class="fas fa-puzzle-piece"></i>
+                        حل المشكلات
+                    </span>
+
                 </div>
             </div>
         </div>
+
     </section>
 
-    <!-- قسم المهارات -->
+    <!-- Skills Section -->
     <section class="skills" id="skills">
+
         <div class="container">
-            <h2 class="section-title">مهاراتي <span class="highlight">.</span></h2>
+
+            <h2 class="section-title">
+                مهاراتي <span class="highlight">.</span>
+            </h2>
+
             <div class="skills-grid">
+
                 <div class="skill-card">
+
                     <div class="skill-icon">
                         <i class="fas fa-terminal"></i>
                     </div>
+
                     <h3>اختبار الاختراق</h3>
-                    <p>فحص وتقييم أمن الأنظمة والشبكات والتطبيقات للكشف عن نقاط الضعف وتعزيز الدفاعات.</p>
+
+                    <p>
+                        فحص وتقييم أمن الأنظمة والشبكات والتطبيقات
+                        للكشف عن نقاط الضعف وتعزيز الدفاعات الأمنية.
+                    </p>
+
                 </div>
+
                 <div class="skill-card">
+
                     <div class="skill-icon">
                         <i class="fas fa-tools"></i>
                     </div>
+
                     <h3>حلول تقنية</h3>
-                    <p>تحليل المتطلبات وتصميم وتنفيذ حلول برمجية وتقنية تلبي الاحتياجات الأمنية والعملية.</p>
+
+                    <p>
+                        تحليل المتطلبات وتصميم وتنفيذ حلول برمجية
+                        وتقنية تلبي الاحتياجات الأمنية والعملية.
+                    </p>
+
                 </div>
+
                 <div class="skill-card">
+
                     <div class="skill-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
+
                     <h3>تحليل الأنظمة</h3>
-                    <p>فهم سلوك الأنظمة المعقدة وتدفق البيانات لتحديد الثغرات المحتملة وتحسين الأداء.</p>
+
+                    <p>
+                        فهم سلوك الأنظمة وتدفق البيانات لتحديد
+                        الثغرات المحتملة وتحسين الأداء.
+                    </p>
+
                 </div>
+
             </div>
         </div>
+
     </section>
 
-    <!-- قسم التواصل -->
+    <!-- Contact Section -->
     <section class="contact" id="contact">
+
         <div class="container">
-            <h2 class="section-title">تواصل معي <span class="highlight">.</span></h2>
+
+            <h2 class="section-title">
+                تواصل معي <span class="highlight">.</span>
+            </h2>
+
             <div class="contact-wrapper">
+
                 <div class="contact-info">
-                    <p>هل لديك استفسار أو تود مناقشة فكرة مشروع؟ لا تتردد في التواصل عبر منصات التواصل الاجتماعي أو تعبئة النموذج.</p>
+
+                    <p>
+                        هل لديك استفسار أو تود مناقشة فكرة مشروع؟
+                        لا تتردد في التواصل عبر منصات التواصل الاجتماعي
+                        أو تعبئة النموذج.
+                    </p>
+
                     <div class="social-links">
-                        <a href="https://www.instagram.com/20.0.l/" target="_blank" class="social-link">
-                            <i class="fab fa-instagram"></i> Instagram
+
+                        <a
+                            href="https://www.instagram.com/20.0.l/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-link"
+                            aria-label="حساب Instagram"
+                        >
+                            <i class="fab fa-instagram"></i>
+                            Instagram
                         </a>
-                        <a href="https://x.com/ithusseinraad" target="_blank" class="social-link">
-                            <i class="fab fa-twitter"></i> Twitter (X)
+
+                        <a
+                            href="https://x.com/ithusseinraad"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-link"
+                            aria-label="حساب X"
+                        >
+                            <i class="fab fa-twitter"></i>
+                            Twitter (X)
                         </a>
-                        <!-- يمكنك إضافة المزيد من الروابط هنا لاحقًا -->
+
                     </div>
                 </div>
+
                 <form class="contact-form" id="contactForm">
-                    <input type="text" placeholder="اسمك الكريم" required>
-                    <input type="email" placeholder="البريد الإلكتروني" required>
-                    <textarea rows="5" placeholder="رسالتك أو طلبك..." required></textarea>
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="اسمك الكريم"
+                        aria-label="اسمك الكريم"
+                        required
+                    >
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="البريد الإلكتروني"
+                        aria-label="البريد الإلكتروني"
+                        required
+                    >
+
+                    <textarea
+                        name="message"
+                        rows="5"
+                        placeholder="رسالتك أو طلبك..."
+                        aria-label="رسالتك أو طلبك"
+                        required
+                    ></textarea>
+
                     <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> إرسال الرسالة
+                        <i class="fas fa-paper-plane"></i>
+                        إرسال الرسالة
                     </button>
+
                 </form>
+
             </div>
         </div>
+
     </section>
 
-    <!-- التذييل -->
+    </main>
+
+    <!-- Footer -->
     <footer class="footer">
+
         <div class="container">
-            <p>© <span id="currentYear"></span> IT HUSSEIN. جميع الحقوق محفوظة.</p>
-            <p>تم التصميم بكل ❤️ ليعكس شغف التقنية والأمن.</p>
+
+            <p>
+                © <span id="currentYear"></span>
+                IT HUSSEIN. جميع الحقوق محفوظة.
+            </p>
+
+            <p>
+                تم التصميم بكل ❤️ ليعكس شغف التقنية والأمن.
+            </p>
+
         </div>
+
     </footer>
 
+    <!-- JavaScript -->
     <script src="script.js"></script>
+
 </body>
 </html>
-
