@@ -1,129 +1,211 @@
-// تفعيل القائمة المتحركة على الهواتف
+
+// ========================================
+// IT HUSSEIN - Optimized JavaScript
+// ========================================
+
+// القائمة المتحركة
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
 
-if(menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        // تغيير الأيقونة
-        const icon = menuToggle.querySelector('i');
-        if(navMenu.classList.contains('active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+if (menuToggle && navMenu) {
+    const menuIcon = menuToggle.querySelector('i');
+
+    menuToggle.setAttribute('aria-expanded', 'false');
+
+    function closeMenu() {
+        navMenu.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+
+        if (menuIcon) {
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
         }
-    });
-
-    // إغلاق القائمة عند النقر على رابط
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            menuToggle.querySelector('i').classList.remove('fa-times');
-            menuToggle.querySelector('i').classList.add('fa-bars');
-        });
-    });
-}
-
-// تأثير الكتابة المتحركة
-const typingText = document.querySelector('.typing-text');
-if(typingText) {
-    const texts = ["اختبار الاختراق", "الأمن السيبراني", "الحلول التقنية"];
-    let textIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typingSpeed = 100;
-
-    function typeEffect() {
-        const currentText = texts[textIndex];
-        
-        if (!isDeleting && charIndex <= currentText.length) {
-            typingText.textContent = currentText.substring(0, charIndex);
-            charIndex++;
-            typingSpeed = 100;
-        } else if (isDeleting && charIndex >= 0) {
-            typingText.textContent = currentText.substring(0, charIndex);
-            charIndex--;
-            typingSpeed = 50;
-        }
-
-        if (!isDeleting && charIndex === currentText.length + 1) {
-            isDeleting = true;
-            typingSpeed = 1500; // انتظار قبل البدء في المسح
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            textIndex = (textIndex + 1) % texts.length;
-            typingSpeed = 500; // انتظار قبل البدء في الكتابة الجديدة
-        }
-
-        setTimeout(typeEffect, typingSpeed);
     }
-    // بدء التأثير بعد تحميل الصفحة
-    setTimeout(typeEffect, 1000);
+
+    menuToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('active');
+
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+
+        if (menuIcon) {
+            menuIcon.classList.toggle('fa-bars', !isOpen);
+            menuIcon.classList.toggle('fa-times', isOpen);
+        }
+    });
+
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeMenu();
+    });
 }
 
-// النموذج (محاكاة الإرسال)
+// ========================================
+// تأثير الكتابة المتحركة
+// ========================================
+
+const typingText = document.querySelector('.typing-text');
+
+if (typingText) {
+    const texts = [
+        'اختبار الاختراق',
+        'الأمن السيبراني',
+        'الحلول التقنية'
+    ];
+
+    const reduceMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    if (reduceMotion) {
+        typingText.textContent = texts[0];
+    } else {
+        let textIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        function typeEffect() {
+            const currentText = texts[textIndex];
+
+            if (!deleting) {
+                charIndex++;
+                typingText.textContent =
+                    currentText.substring(0, charIndex);
+
+                if (charIndex >= currentText.length) {
+                    deleting = true;
+                    setTimeout(typeEffect, 1500);
+                    return;
+                }
+
+                setTimeout(typeEffect, 100);
+            } else {
+                charIndex--;
+                typingText.textContent =
+                    currentText.substring(0, charIndex);
+
+                if (charIndex <= 0) {
+                    deleting = false;
+                    textIndex = (textIndex + 1) % texts.length;
+                    setTimeout(typeEffect, 500);
+                    return;
+                }
+
+                setTimeout(typeEffect, 50);
+            }
+        }
+
+        setTimeout(typeEffect, 1000);
+    }
+}
+
+// ========================================
+// نموذج التواصل
+// ========================================
+
 const contactForm = document.getElementById('contactForm');
-if(contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // هنا يمكنك إضافة كود إرسال النموذج إلى خادم لاحقًا
-        // للمحاكاة الآن:
-        const submitBtn = this.querySelector('button[type="submit"]');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const submitBtn = this.querySelector(
+            'button[type="submit"]'
+        );
+
+        if (!submitBtn) return;
+
         const originalText = submitBtn.innerHTML;
-        
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+
         submitBtn.disabled = true;
-        
+        submitBtn.innerHTML =
+            '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+
         setTimeout(() => {
-            alert('شكرًا لك، IT HUSSEIN! تم استلام رسالتك بنجاح. سأتواصل معك قريبًا.');
+            alert(
+                'هذا النموذج تجريبي حالياً. لم يتم إرسال رسالتك إلى خادم.'
+            );
+
             contactForm.reset();
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
-        }, 1500);
+        }, 1000);
     });
 }
 
-// تحديث السنة في التذييل تلقائيًا
+// ========================================
+// تحديث السنة تلقائياً
+// ========================================
+
 const currentYearSpan = document.getElementById('currentYear');
-if(currentYearSpan) {
+
+if (currentYearSpan) {
     currentYearSpan.textContent = new Date().getFullYear();
 }
 
-// تأثير سلس للروابط الداخلية
+// ========================================
+// التمرير السلس
+// ========================================
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function(event) {
         const targetId = this.getAttribute('href');
-        if(targetId === '#') return;
-        
+
+        if (!targetId || targetId === '#') return;
+
         const targetElement = document.querySelector(targetId);
-        if(targetElement) {
-            e.preventDefault();
+
+        if (targetElement) {
+            event.preventDefault();
+
+            const top =
+                targetElement.getBoundingClientRect().top +
+                window.scrollY - 80;
+
             window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
+                top,
+                behavior: window.matchMedia(
+                    '(prefers-reduced-motion: reduce)'
+                ).matches ? 'auto' : 'smooth'
             });
         }
     });
 });
 
-// تأثير ظهور العناصر عند التمرير
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+// ========================================
+// مراقبة ظهور العناصر عند التمرير
+// ========================================
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting) {
-            entry.target.classList.add('animate');
-        }
+const animatedElements = document.querySelectorAll(
+    '.skill-card, .about-content, .contact-wrapper > div'
+);
+
+const reduceMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+).matches;
+
+if ('IntersectionObserver' in window && !reduceMotion) {
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+
+                // إيقاف مراقبة العنصر بعد ظهوره
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     });
-}, observerOptions);
 
-// مراقبة العناصر التي نريد إضافة تأثير لها
-document.querySelectorAll('.skill-card, .about-content, .contact-wrapper > div').forEach(el => {
-    observer.observe(el);
-});
+    animatedElements.forEach(element => {
+        observer.observe(element);
+    });
+} else {
+    animatedElements.forEach(element => {
+        element.classList.add('animate');
+    });
+}
