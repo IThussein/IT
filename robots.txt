@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ithussein.github.io/IT/sitemap.xml
+Sitemap: https://ithussein.github.io/web/sitemap.xml
